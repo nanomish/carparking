@@ -5,7 +5,7 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
 
     $stateProvider
         .state('main', {
-            url: '/',
+            url: '/?signid',
             template: require('html!../main/main.html'),
             controller: 'MainCtrl',
             controllerAs: 'vm',

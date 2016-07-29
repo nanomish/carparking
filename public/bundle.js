@@ -61,9 +61,9 @@
 
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 
-	var _main = __webpack_require__(5);
+	var _mainCtrl = __webpack_require__(8);
 
-	var _main2 = _interopRequireDefault(_main);
+	var _mainCtrl2 = _interopRequireDefault(_mainCtrl);
 
 	var _config = __webpack_require__(6);
 
@@ -73,7 +73,7 @@
 
 	//var angular = require('angular');
 
-	_angular2.default.module('app', [_angularUiRouter2.default]).controller('MainCtrl', _main2.default).config(_config2.default);
+	_angular2.default.module('app', [_angularUiRouter2.default]).controller('MainCtrl', _mainCtrl2.default).config(_config2.default);
 
 /***/ },
 /* 2 */
@@ -19069,23 +19069,7 @@
 	 */$IncludedByStateFilter.$inject=['$state'];function $IncludedByStateFilter($state){var includesFilter=function includesFilter(state,params,options){return $state.includes(state,params,options);};includesFilter.$stateful=true;return includesFilter;}angular.module('ui.router.state').filter('isState',$IsStateFilter).filter('includedByState',$IncludedByStateFilter);})(window,window.angular);
 
 /***/ },
-/* 5 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	MainCtrl.$inject = ['$scope'];
-
-	function MainCtrl($scope) {
-	    $scope.who = 'carpar';
-	}
-
-	exports.default = MainCtrl;
-
-/***/ },
+/* 5 */,
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -19100,7 +19084,7 @@
 	    $urlRouterProvider.otherwise("/");
 
 	    $stateProvider.state('main', {
-	        url: '/',
+	        url: '/?signid',
 	        template: __webpack_require__(7),
 	        controller: 'MainCtrl',
 	        controllerAs: 'vm',
@@ -19114,7 +19098,25 @@
 /* 7 */
 /***/ function(module, exports) {
 
-	module.exports = "hello there {{who}}!";
+	module.exports = "hello there {{who}}!\n        <div>{{signid}}</div> let us tel if you if can park...";
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	MainCtrl.$inject = ['$scope', '$stateParams'];
+
+	function MainCtrl($scope, $stateParams) {
+	    $scope.who = 'carpar';
+	    $scope.signid = $stateParams.signid;
+	}
+
+	exports.default = MainCtrl;
 
 /***/ }
 /******/ ]);

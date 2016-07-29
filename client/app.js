@@ -2,7 +2,7 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 
-import MainCtrl from './main/main.js';
+import MainCtrl from './main/mainCtrl.js';
 import appConfig from './config/config.js';
 
 //var angular = require('angular');
