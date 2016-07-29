@@ -15,13 +15,8 @@ var config = {
                 loader: 'babel-loader',
                 query: {
                     presets: ['es2015']
-                }/*,
-                exclude: path.resolve(__dirname, 'node_modules/')*/
-            }/*,
-            {
-                test: /\.html$/,
-                loader: "html"
-            }*/
+                }
+            }
         ]
     }
 };
