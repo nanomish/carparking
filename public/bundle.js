@@ -61,7 +61,7 @@
 
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 
-	var _mainCtrl = __webpack_require__(8);
+	var _mainCtrl = __webpack_require__(5);
 
 	var _mainCtrl2 = _interopRequireDefault(_mainCtrl);
 
@@ -19069,7 +19069,35 @@
 	 */$IncludedByStateFilter.$inject=['$state'];function $IncludedByStateFilter($state){var includesFilter=function includesFilter(state,params,options){return $state.includes(state,params,options);};includesFilter.$stateful=true;return includesFilter;}angular.module('ui.router.state').filter('isState',$IsStateFilter).filter('includedByState',$IncludedByStateFilter);})(window,window.angular);
 
 /***/ },
-/* 5 */,
+/* 5 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	MainCtrl.$inject = ['$scope', '$stateParams'];
+
+	function MainCtrl($scope, $stateParams) {
+	    $scope.who = 'carpar';
+	    var vm = this;
+	    $scope.signid = $stateParams.signid;
+
+	    console.log('Main - running');
+	    vm.sometext = 'this is the text';
+	    if ($scope.signid === 'edmont001') {
+	        $scope.signComment = 'You can park here now for free';
+	        console.log('Main - signid:', $scope.signid);
+	    } else if ($scope.signid === 'edmont002') {
+	        $scope.signComment = 'Currently you cannot park';
+	        console.log('Main - signid:', $scope.signid);
+	    }
+	}
+
+	exports.default = MainCtrl;
+
+/***/ },
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -19098,25 +19126,7 @@
 /* 7 */
 /***/ function(module, exports) {
 
-	module.exports = "hello there {{who}}!\n        <div>{{signid}}</div> let us tel if you if can park...";
-
-/***/ },
-/* 8 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	MainCtrl.$inject = ['$scope', '$stateParams'];
-
-	function MainCtrl($scope, $stateParams) {
-	    $scope.who = 'carpar';
-	    $scope.signid = $stateParams.signid;
-	}
-
-	exports.default = MainCtrl;
+	module.exports = "hello there {{who}}!\n        <div>{{signid}}</div>\nlet us tell if you can park here ...\n        <br>\n        <div>info:{{signComment}}</div>\n        <br>\n        <div>{{vm.sometext}}</div>";
 
 /***/ }
 /******/ ]);
