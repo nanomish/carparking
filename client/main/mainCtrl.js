@@ -1,18 +1,16 @@
-MainCtrl.$inject = ['$scope', '$stateParams'];
+MainCtrl.$inject = ['$stateParams'];
 
-function MainCtrl($scope, $stateParams) {
-    $scope.who = 'carpar';
+function MainCtrl($stateParams) {
     var vm = this;
-    $scope.signid = $stateParams.signid;
+    vm.signid = $stateParams.signid;
+    vm.signComment = '';
 
     console.log('Main - running');
-    vm.sometext = 'this is the text';
-    if ($scope.signid === 'edmont001') {
-        $scope.signComment = 'You can park here now for free';
-        console.log('Main - signid:', $scope.signid);
-    } else if ($scope.signid === 'edmont002') {
-        $scope.signComment = 'Currently you cannot park';
-        console.log('Main - signid: ', $scope.signid);
+    console.log('Main - signid:', vm.signid);
+    if (vm.signid === 'edmont001') {
+        vm.signComment = 'You can park here now for free';
+    } else if (vm.signid === 'edmont002') {
+        vm.signComment = 'Currently you cannot park';
     }
 }
 
