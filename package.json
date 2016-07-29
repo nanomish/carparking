@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "preinstall" : "npm install -g webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.conf.js --progress --profile --colors",
     "start": "node server/server.js"
