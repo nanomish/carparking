@@ -19077,21 +19077,19 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	MainCtrl.$inject = ['$scope', '$stateParams'];
+	MainCtrl.$inject = ['$stateParams'];
 
-	function MainCtrl($scope, $stateParams) {
-	    $scope.who = 'carpar';
+	function MainCtrl($stateParams) {
 	    var vm = this;
-	    $scope.signid = $stateParams.signid;
+	    vm.signid = $stateParams.signid;
+	    vm.signComment = '';
 
 	    console.log('Main - running');
-	    vm.sometext = 'this is the text';
-	    if ($scope.signid === 'edmont001') {
-	        $scope.signComment = 'You can park here now for free';
-	        console.log('Main - signid:', $scope.signid);
-	    } else if ($scope.signid === 'edmont002') {
-	        $scope.signComment = 'Currently you cannot park';
-	        console.log('Main - signid:', $scope.signid);
+	    console.log('Main - signid:', vm.signid);
+	    if (vm.signid === 'edmont001') {
+	        vm.signComment = 'You can park here now for free';
+	    } else if (vm.signid === 'edmont002') {
+	        vm.signComment = 'Currently you cannot park';
 	    }
 	}
 
@@ -19126,7 +19124,7 @@
 /* 7 */
 /***/ function(module, exports) {
 
-	module.exports = "hello there {{who}}!\n        <div>{{signid}}</div>\nlet us tell if you can park here ...\n        <br>\n        <div>info:{{signComment}}</div>\n        <br>\n        <div>{{vm.sometext}}</div>";
+	module.exports = "<div class=\"row\">\n        <div class=\"col-xs-12\">\n\n                <div class=\"jumbotron col-xs-5\">\n                        <h1>Hello!</h1>\n                        <form>\n                        <br>\n                        <div class=\"form-control\">\n                                Regarding this sign:\n                                {{vm.signComment}}\n                        </div>\n                        <br>\n                        </form>\n                </div>\n\n        </div>\n</div>";
 
 /***/ }
 /******/ ]);
