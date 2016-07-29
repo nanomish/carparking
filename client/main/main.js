@@ -1,3 +1,7 @@
-/**
- * Created by mkushnir on 28/07/16.
- */
+MainCtrl.$inject = ['$scope'];
+
+function MainCtrl($scope) {
+    $scope.who = 'carpar';
+}
+
+export default MainCtrl;
