@@ -8,6 +8,9 @@ var publicPath = path.resolve(__dirname, '..', 'public');
 
 var app = express();
 
+var port = process.env.PORT || 7000;
+
+
 app.use(express.static(publicPath));
 
 app.get('/car', function (req, res) {
@@ -22,6 +25,6 @@ app.get('/api/getobj', function(req, res) {
     res.send({'key': 'value'});
 });
 
-var server = app.listen(7000, '0.0.0.0', function() {
+var server = app.listen(port, function() {
     console.log('Listening on port %d', server.address().port);
 });
