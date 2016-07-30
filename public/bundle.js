@@ -65,7 +65,7 @@
 
 	var _mainCtrl2 = _interopRequireDefault(_mainCtrl);
 
-	var _config = __webpack_require__(6);
+	var _config = __webpack_require__(7);
 
 	var _config2 = _interopRequireDefault(_config);
 
@@ -19076,7 +19076,7 @@
 	    value: true
 	});
 
-	var _underscore = __webpack_require__(8);
+	var _underscore = __webpack_require__(6);
 
 	var _underscore2 = _interopRequireDefault(_underscore);
 
@@ -19124,37 +19124,6 @@
 
 /***/ },
 /* 6 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	function config($stateProvider, $urlRouterProvider, $locationProvider) {
-	    $locationProvider.html5Mode(true);
-
-	    $urlRouterProvider.otherwise("/");
-
-	    $stateProvider.state('main', {
-	        url: '/?signid',
-	        template: __webpack_require__(7),
-	        controller: 'MainCtrl',
-	        controllerAs: 'vm',
-	        title: ''
-	    });
-	}
-
-	exports.default = ['$stateProvider', '$urlRouterProvider', '$locationProvider', config];
-
-/***/ },
-/* 7 */
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"row\">\n\t<div class=\"col-xs-12\">\n\n\t\t<div class=\"jumbotron col-xs-5\">\n\t\t\t<form>\n\t\t\t\t<div ng-if=\"vm.scannedSign.signComment\">\n\t\t\t\t\t{{vm.scannedSign.signComment}}\n\t\t\t\t</div>\n\t\t\t\t<div ng-if=\"!vm.scannedSign.signComment\">\n\t\t\t\t\tNo data available!\n\t\t\t\t</div>\n\t\t\t\t<div ng-if=\"vm.scannedSign.pictureUrl\">\n\t\t\t\t\t<img height=\"400\" width=\"200\" src=\"{{vm.scannedSign.pictureUrl}}\">\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\n\t</div>\n</div>";
-
-/***/ },
-/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
@@ -20729,6 +20698,37 @@
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	  }
 	}).call(undefined);
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	function config($stateProvider, $urlRouterProvider, $locationProvider) {
+	    $locationProvider.html5Mode(true);
+
+	    $urlRouterProvider.otherwise("/");
+
+	    $stateProvider.state('main', {
+	        url: '/?signid',
+	        template: __webpack_require__(8),
+	        controller: 'MainCtrl',
+	        controllerAs: 'vm',
+	        title: ''
+	    });
+	}
+
+	exports.default = ['$stateProvider', '$urlRouterProvider', '$locationProvider', config];
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"row\">\n\t<div class=\"col-xs-12\">\n\n\t\t<div class=\"jumbotron col-xs-5\">\n\t\t\t<form>\n\t\t\t\t<div ng-if=\"vm.scannedSign.signComment\">\n\t\t\t\t\t{{vm.scannedSign.signComment}}\n\t\t\t\t</div>\n\t\t\t\t<div ng-if=\"!vm.scannedSign.signComment\">\n\t\t\t\t\tNo data available!\n\t\t\t\t</div>\n\t\t\t\t<div ng-if=\"vm.scannedSign.pictureUrl\">\n\t\t\t\t\t<img height=\"400\" width=\"200\" src=\"{{vm.scannedSign.pictureUrl}}\">\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\n\t</div>\n</div>";
 
 /***/ }
 /******/ ]);

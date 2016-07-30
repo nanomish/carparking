@@ -30,7 +30,7 @@ function MainCtrl($stateParams) {
                 signComment: 'You can park here now for free',
                 parking: {
                     Sunday: {
-                                
+
                     }
                 }
             },
