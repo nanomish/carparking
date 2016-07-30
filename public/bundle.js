@@ -71,8 +71,6 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	//var angular = require('angular');
-
 	_angular2.default.module('app', [_angularUiRouter2.default]).controller('MainCtrl', _mainCtrl2.default).config(_config2.default);
 
 /***/ },
@@ -19124,7 +19122,7 @@
 /* 7 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"row\">\n        <div class=\"col-xs-12\">\n\n                <div class=\"jumbotron col-xs-5\">\n                        <h1>Hello!</h1>\n                        <form>\n                        <br>\n                        <div class=\"form-control\">\n                                Regarding this sign:\n                                {{vm.signComment}}\n                        </div>\n                        <br>\n                        </form>\n                </div>\n\n        </div>\n</div>";
+	module.exports = "<div class=\"row\">\n        <div class=\"col-xs-12\">\n\n                <div class=\"jumbotron col-xs-5\">\n                        <form>\n                        <div >\n                                {{vm.signComment}}\n                        </div>\n                        </form>\n                </div>\n\n        </div>\n</div>";
 
 /***/ }
 /******/ ]);
