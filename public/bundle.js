@@ -19087,6 +19087,7 @@
 	function MainCtrl($stateParams) {
 	    var vm = this;
 	    init();
+
 	    vm.signid = $stateParams.signid;
 	    vm.signComment = '';
 
@@ -19094,25 +19095,23 @@
 	    console.log('Main - signid:', vm.signid);
 
 	    vm.scannedSign = _underscore2.default.findWhere(vm.signs, { id: vm.signid });
-	    if (!vm.scannedSign) {
+	    if (vm.scannedSign) {
+	        vm.signPicture = vm.scannedSign.pictureUrl;
+	        vm.signComment = vm.scannedSign.signComment;
+	    } else {
 	        vm.signPicture = '';
 	        vm.signComment = 'No Info!';
 	    }
-	    console.log('vm.scannedSign: ', vm.scannedSign);
-	    if (vm.signid === 'edmont001') {
-	        vm.signComment = 'You can park here now for free';
-	        vm.signPicture = vm.signs[0].pictureUrl;
-	    } else if (vm.signid === 'edmont002') {
-	        vm.signComment = 'Currently you cannot park';
-	        vm.signPicture = vm.signs[1].pictureUrl;
-	    }
+	    //console.log('vm.scannedSign: ', vm.scannedSign);
 
 	    function init() {
 	        vm.signs = [{
 	            id: 'edmont001',
 	            pictureUrl: 'images/sign001.png',
 	            signComment: 'You can park here now for free',
-	            parking: {}
+	            parking: {
+	                Sunday: {}
+	            }
 	        }, {
 	            id: 'edmont002',
 	            pictureUrl: 'images/sign002.png',
@@ -19152,7 +19151,7 @@
 /* 7 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"row\">\n        <div class=\"col-xs-12\">\n\n                <div class=\"jumbotron col-xs-5\">\n                        <form>\n                        <div >\n                                {{vm.scannedSign.signComment}}\n                        </div>\n                                <img height=\"400\" width=\"200\" src=\"{{vm.scannedSign.pictureUrl}}\">\n                        </form>\n                </div>\n\n        </div>\n</div>";
+	module.exports = "<div class=\"row\">\n\t<div class=\"col-xs-12\">\n\n\t\t<div class=\"jumbotron col-xs-5\">\n\t\t\t<form>\n\t\t\t\t<div ng-if=\"vm.scannedSign.signComment\">\n\t\t\t\t\t{{vm.scannedSign.signComment}}\n\t\t\t\t</div>\n\t\t\t\t<div ng-if=\"!vm.scannedSign.signComment\">\n\t\t\t\t\tNo data available!\n\t\t\t\t</div>\n\t\t\t\t<div ng-if=\"vm.scannedSign.pictureUrl\">\n\t\t\t\t\t<img height=\"400\" width=\"200\" src=\"{{vm.scannedSign.pictureUrl}}\">\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\n\t</div>\n</div>";
 
 /***/ },
 /* 8 */

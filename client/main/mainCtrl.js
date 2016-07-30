@@ -5,6 +5,7 @@ MainCtrl.$inject = ['$stateParams'];
 function MainCtrl($stateParams) {
     var vm = this;
     init();
+
     vm.signid = $stateParams.signid;
     vm.signComment = '';
 
@@ -12,18 +13,14 @@ function MainCtrl($stateParams) {
     console.log('Main - signid:', vm.signid);
 
     vm.scannedSign = _.findWhere(vm.signs, {id: vm.signid});
-    if (!vm.scannedSign) {
+    if (vm.scannedSign) {
+        vm.signPicture = vm.scannedSign.pictureUrl;
+        vm.signComment = vm.scannedSign.signComment;
+    } else {
         vm.signPicture = '';
         vm.signComment = 'No Info!';
     }
-    console.log('vm.scannedSign: ', vm.scannedSign);
-    if (vm.signid === 'edmont001') {
-        vm.signComment = 'You can park here now for free';
-        vm.signPicture = vm.signs[0].pictureUrl;
-    } else if (vm.signid === 'edmont002') {
-        vm.signComment = 'Currently you cannot park';
-        vm.signPicture = vm.signs[1].pictureUrl;
-    }
+    //console.log('vm.scannedSign: ', vm.scannedSign);
 
     function init() {
         vm.signs = [
@@ -32,7 +29,9 @@ function MainCtrl($stateParams) {
                 pictureUrl: 'images/sign001.png',
                 signComment: 'You can park here now for free',
                 parking: {
-
+                    Sunday: {
+                                
+                    }
                 }
             },
             {
