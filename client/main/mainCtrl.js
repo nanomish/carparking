@@ -30,7 +30,10 @@ function MainCtrl($stateParams) {
             {
                 id: 'edmont001',
                 pictureUrl: 'images/sign001.png',
-                signComment: 'You can park here now for free'
+                signComment: 'You can park here now for free',
+                parking: {
+
+                }
             },
             {
                 id: 'edmont002',
