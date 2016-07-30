@@ -27,7 +27,7 @@ function MainCtrl($stateParams) {
             {
                 id: 'edmont001',
                 pictureUrl: 'images/sign001.png',
-                signComment: 'You can park here now for free',
+                signComment: 'החניה מותרת לתושבי אזור 30 בלבד',
                 parking: {
                     Sunday: {
 
@@ -37,7 +37,7 @@ function MainCtrl($stateParams) {
             {
                 id: 'edmont002',
                 pictureUrl: 'images/sign002.png',
-                signComment: 'Currently you cannot park'
+                signComment: 'החניה מותרת בתשלום'
             }
         ];
     }
