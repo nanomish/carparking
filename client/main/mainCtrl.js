@@ -1,9 +1,13 @@
-
 import _ from 'underscore';
-MainCtrl.$inject = ['$stateParams'];
 
-function MainCtrl($stateParams) {
+MainCtrl.$inject = ['$scope', '$stateParams'];
+
+function MainCtrl($scope, $stateParams) {
     var vm = this;
+    vm.scannedSign = {};
+    vm.showPicture = showPicture;
+    $scope.modal2 = false;
+
     init();
 
     vm.signid = $stateParams.signid;
@@ -21,6 +25,11 @@ function MainCtrl($stateParams) {
         vm.signComment = 'No Info!';
     }
     //console.log('vm.scannedSign: ', vm.scannedSign);
+
+    function showPicture() {
+        $scope.modal2 = true;
+        console.log('Main - showPicture()');
+    }
 
     function init() {
         vm.signs = [

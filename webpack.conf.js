@@ -1,3 +1,5 @@
+//'use strict';
+
 var path = require('path');
 var publicPath = path.resolve(__dirname, 'public');
 

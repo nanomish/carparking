@@ -3,6 +3,7 @@
 npm-debug.log
 
 public/assets
+public/bundle.js
 node_modules
 stats.json
 

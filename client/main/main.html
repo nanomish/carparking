@@ -1,19 +1,29 @@
-<div class="row">
-	<div class="col-xs-12">
 
-		<div class="jumbotron col-xs-5">
-			<form>
-				<div ng-if="vm.scannedSign.signComment">
-					{{vm.scannedSign.signComment}}
+<div class="scrollable">
+	<div class="scrollable-content">
+		<div class="section">
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Info
 				</div>
-				<div ng-if="!vm.scannedSign.signComment">
-					No data available!
+
+				<div class="panel-body">
+					<h3>
+						<div ng-if="vm.scannedSign.signComment">
+							{{vm.scannedSign.signComment}}
+						</div>
+						<div ng-if="!vm.scannedSign.signComment">
+							No data available!
+						</div>
+					</h3>
+					<div ng-if="vm.scannedSign.pictureUrl">
+						<img src="{{vm.scannedSign.pictureUrl}}">
+						<!--<button class="btn btn-default" ng-click="vm.showPicture()">show</button>-->
+					</div>
 				</div>
-				<div ng-if="vm.scannedSign.pictureUrl">
-					<img height="400" width="200" src="{{vm.scannedSign.pictureUrl}}">
-				</div>
-			</form>
+			</div>
+
 		</div>
-
 	</div>
 </div>
