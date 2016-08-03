@@ -1,10 +1,13 @@
 import _ from 'underscore';
+import moment from 'moment';
 
 MainCtrl.$inject = ['$scope', '$stateParams'];
 
 function MainCtrl($scope, $stateParams) {
     var vm = this;
     vm.scannedSign = {};
+    vm.dateNow = moment().format('lll');
+    vm.timePrefix = '';
     vm.showPicture = showPicture;
     $scope.modal2 = false;
 
