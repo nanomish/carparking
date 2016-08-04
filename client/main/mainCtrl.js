@@ -36,7 +36,9 @@ function MainCtrl($scope, $stateParams) {
     function getParkingStateByIssuer(forWhom, state) {
         console.log('getParkingStateByIssuer - state: ', state);
         console.log('getParkingStateByIssuer - forWhom: ', forWhom);
+        console.log('getParkingStateByIssuer - looking in: ', state.who);
         if (_.contains(state.who, forWhom)) {
+            console.log('getParkingStateByIssuer - found state: ', state);
             return state;
         }
     }
@@ -127,15 +129,15 @@ function MainCtrl($scope, $stateParams) {
                         },
                         {
                             start: '17:00',
-                            end: '09:00',
+                            end: '23:59',
                             days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
                             state: [
                                 {
-                                    who: 'all',
+                                    who: ['all'],
                                     parkingIs: 'אין החניה'
                                 },
                                 {
-                                    who: 'area#30',
+                                    who: ['area#30'],
                                     parkingIs: 'החניה בחינם'
                                 }
                             ]
@@ -146,11 +148,11 @@ function MainCtrl($scope, $stateParams) {
                             days: ['Friday', 'Saturday', 'Holidays'],
                             state: [
                                 {
-                                    who: 'all',
+                                    who: ['all'],
                                     parkingIs: 'החניה בתשלום'
                                 },
                                 {
-                                    who: 'area#all',
+                                    who: ['area#all'],
                                     parkingIs: 'החניה בחינם'
                                 }
                             ]
@@ -161,11 +163,11 @@ function MainCtrl($scope, $stateParams) {
                             days: ['Friday', 'Saturday', 'Holidays'],
                             state: [
                                 {
-                                    who: 'all',
+                                    who: ['all'],
                                     parkingIs: 'החניה בתשלום'
                                 },
                                 {
-                                    who: 'area#all',
+                                    who: ['area#all'],
                                     parkingIs: 'החניה בחינם'
                                 }
                             ]
