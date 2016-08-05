@@ -29,7 +29,7 @@
 						<span ng-if="vm.showPicture">Hide sign picture</span>
 					</button>
 					<div ng-if="vm.scannedSign.pictureUrl && vm.showPicture" class="centered">
-						<img src="{{vm.scannedSign.pictureUrl}}" >
+						<img src="{{vm.scannedSign.pictureUrl}}" style="max-width:100%; max-height:100%;">
 						<!--<button class="btn btn-default" ng-click="vm.showPicture()">show</button>-->
 					</div>
 				</div>

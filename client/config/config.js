@@ -3,6 +3,8 @@ function config($stateProvider, $urlRouterProvider, $locationProvider, $httpProv
 
     $urlRouterProvider.otherwise("/");
 
+    console.log('running config');
+
     $stateProvider
         .state('main', {
             url: '/?signid',
@@ -13,23 +15,31 @@ function config($stateProvider, $urlRouterProvider, $locationProvider, $httpProv
         })
     .state('admin', {
             url: '/admin',
-            template: require('html!../admnin/admin.html'),
+            template: require('html!../admin/admin.html'),
             controller: 'AdminCtrl',
+            controllerAs: 'vm',
+            resolve: {
+                loggedin: checkLoggedin
+            }
+        })
+    .state('login', {
+            url: '/login',
+            template: require('html!../login/login.html'),
+            controller: 'LoginCtrl',
             controllerAs: 'vm'
         });
-    /*
-     .when('/admin', { templateUrl: 'views/admin.html', controller: 'AdminCtrl', resolve: { loggedin: checkLoggedin } }) .when('/login', { templateUrl: 'views/login.html', controller: 'LoginCtrl' }) - See more at: https://vickev.com/#!/article/authentication-in-single-page-applications-node-js-passportjs-angularjs
 
-     */
-
+    console.log('config - interceptor');
     $httpProvider.interceptors.push(function ($q, $location) {
         return {
             response: function (response) {
                 // do something on success
+                console.log('config - interceptor success');
                 return response;
             },
             responseError: function (response) {
                 if (response.status === 401) {
+                    console.log('config - return 401');
                     $location.url('/login');
                 }
                 return $q.reject(response);
@@ -37,10 +47,11 @@ function config($stateProvider, $urlRouterProvider, $locationProvider, $httpProv
         };
     }); //- See more at: https://vickev.com/#!/article/authentication-in-single-page-applications-node-js-passportjs-angularjs
 
-    var checkLoggedin = function($q, $timeout, $http, $location, $rootScope) {
+    function checkLoggedin($q, $timeout, $http, $location, $rootScope) {
             // Initialize a new promise
             var deferred = $q.defer();
             // Make an AJAX call to check if the user is logged in
+        console.log('checkLoggedIn - ');
             $http.get('/loggedin').success(function(user) {
             // Authenticated
             if (user !== '0') {
