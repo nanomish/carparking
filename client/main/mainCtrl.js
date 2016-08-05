@@ -93,8 +93,12 @@ function MainCtrl($scope, $stateParams) {
         vm.signs = [
             {
                 id: 'edmont001',
-                pictureUrl: 'images/sign001.png',
+                pictureUrl: 'https://s3-eu-west-1.amazonaws.com/carparkingsigns/sign001.png',
                 location: {},
+                status: {
+                    date: {},
+                    is: ''
+                },
                 areas: [
                     {
                         label: 'תושב אזור 30',
@@ -105,7 +109,7 @@ function MainCtrl($scope, $stateParams) {
                         data: all
                     },*/
                     {
-                        label: 'אינני תושב תל אביב',
+                        label: 'איני תושב תל אביב',
                         data: 'all'
                     }
                 ],
@@ -129,7 +133,22 @@ function MainCtrl($scope, $stateParams) {
                         },
                         {
                             start: '17:00',
-                            end: '23:59',
+                            end: '00:00',
+                            days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+                            state: [
+                                {
+                                    who: ['all'],
+                                    parkingIs: 'אין החניה'
+                                },
+                                {
+                                    who: ['area#30'],
+                                    parkingIs: 'החניה בחינם'
+                                }
+                            ]
+                        },
+                        {
+                            start: '00:00',
+                            end: '09:00',
                             days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
                             state: [
                                 {
@@ -152,7 +171,7 @@ function MainCtrl($scope, $stateParams) {
                                     parkingIs: 'החניה בתשלום'
                                 },
                                 {
-                                    who: ['area#all'],
+                                    who: ['area#30'],
                                     parkingIs: 'החניה בחינם'
                                 }
                             ]
@@ -167,7 +186,7 @@ function MainCtrl($scope, $stateParams) {
                                     parkingIs: 'החניה בתשלום'
                                 },
                                 {
-                                    who: ['area#all'],
+                                    who: ['area#30'],
                                     parkingIs: 'החניה בחינם'
                                 }
                             ]
@@ -176,7 +195,7 @@ function MainCtrl($scope, $stateParams) {
             },
             {
                 id: 'edmont002',
-                pictureUrl: 'images/sign002.png',
+                pictureUrl: 'https://s3-eu-west-1.amazonaws.com/carparkingsigns/sign002.png',
                 location: {},
                 defaultSignComment: 'החניה מותרת בתשלום'
             }
