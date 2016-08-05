@@ -10,6 +10,12 @@ function config($stateProvider, $urlRouterProvider, $locationProvider, $httpProv
             controller: 'MainCtrl',
             controllerAs: 'vm',
             title: ''
+        })
+    .state('admin', {
+            url: '/admin',
+            template: require('html!../admnin/admin.html'),
+            controller: 'AdminCtrl',
+            controllerAs: 'vm'
         });
     /*
      .when('/admin', { templateUrl: 'views/admin.html', controller: 'AdminCtrl', resolve: { loggedin: checkLoggedin } }) .when('/login', { templateUrl: 'views/login.html', controller: 'LoginCtrl' }) - See more at: https://vickev.com/#!/article/authentication-in-single-page-applications-node-js-passportjs-angularjs
