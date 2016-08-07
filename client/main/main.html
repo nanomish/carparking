@@ -9,26 +9,26 @@
 				</div>
 
 				<div class="panel-body" style="text-align: right" >
-					<label for="area_number">
+					<label for="area_number" ng-if="vm.scannedSign.areas.length > 0">
 						<select ng-model="vm.who" id="area_number" type="checkbox"
 								ng-options="area.data as area.label for area in vm.scannedSign.areas">
 						</select>
 						:בחר
 					</label>
 
-					<h3>
-						<div ng-if="vm.signComment" style="align-content: center">
-							{{vm.signComment}}
-						</div>
-						<div ng-if="!vm.signComment">
-							No data available!
-						</div>
-					</h3>
-					<button class="btn btn-primary" ng-click="vm.showPicture = !vm.showPicture">
-						<span ng-if="!vm.showPicture">Show sign picture</span>
-						<span ng-if="vm.showPicture">Hide sign picture</span>
-					</button>
-					<div ng-if="vm.scannedSign.pictureUrl && vm.showPicture" class="centered">
+					<div ng-if="vm.signComment">
+						<h2 style="text-align: center">
+							<b>
+								{{vm.signComment}}
+							</b>
+						</h2>
+					</div>
+					<div ng-if="!vm.signComment">
+						No data available!
+					</div>
+
+
+					<div ng-if="vm.scannedSign.pictureUrl" class="centered">
 						<img src="{{vm.scannedSign.pictureUrl}}" style="max-width:100%; max-height:100%;">
 						<!--<button class="btn btn-default" ng-click="vm.showPicture()">show</button>-->
 					</div>

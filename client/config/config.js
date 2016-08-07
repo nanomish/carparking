@@ -7,19 +7,19 @@ function config($stateProvider, $urlRouterProvider, $locationProvider, $httpProv
 
     $stateProvider
         .state('main', {
-            url: '/?signid',
+            url: '/?signid=',
             template: require('html!../main/main.html'),
             controller: 'MainCtrl',
             controllerAs: 'vm',
             title: ''
         })
     .state('admin', {
-            url: '/admin',
+            url: '/admin?a',
             template: require('html!../admin/admin.html'),
             controller: 'AdminCtrl',
             controllerAs: 'vm',
             resolve: {
-                loggedin: checkLoggedin
+                loggedin: checkLoggedIn
             }
         })
     .state('login', {
@@ -39,7 +39,7 @@ function config($stateProvider, $urlRouterProvider, $locationProvider, $httpProv
             },
             responseError: function (response) {
                 if (response.status === 401) {
-                    console.log('config - return 401');
+                    console.log('config - interceptor returns 401');
                     $location.url('/login');
                 }
                 return $q.reject(response);
@@ -47,11 +47,11 @@ function config($stateProvider, $urlRouterProvider, $locationProvider, $httpProv
         };
     }); //- See more at: https://vickev.com/#!/article/authentication-in-single-page-applications-node-js-passportjs-angularjs
 
-    function checkLoggedin($q, $timeout, $http, $location, $rootScope) {
+    function checkLoggedIn($q, $http, $location, $rootScope) {
             // Initialize a new promise
             var deferred = $q.defer();
             // Make an AJAX call to check if the user is logged in
-        console.log('checkLoggedIn - ');
+            console.log('checkLoggedIn - ');
             $http.get('/loggedin').success(function(user) {
             // Authenticated
             if (user !== '0') {

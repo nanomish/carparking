@@ -14,6 +14,7 @@ var port = process.env.PORT || 7000;
 // Define a middleware function to be used for every secured routes
 var auth = function(req, res, next) {
     if (!req.isAuthenticated()) {
+        console.log('sending 401');
         res.send(401)
     }
     else {
@@ -21,7 +22,10 @@ var auth = function(req, res, next) {
     }
 }; //- See more at: https://vickev.com/#!/article/authentication-in-single-page-applications-node-js-passportjs-angularjs
 
-app.get('/admin', auth, function () {return {admin: 'adminvalue'};});
+app.get('/admin', auth, function () {
+    console.log('admin - on server');
+    return {admin: 'adminvalue'};
+});
 
 // route to test if the user is logged in or not
 app.get('/loggedin', function(req, res) {
