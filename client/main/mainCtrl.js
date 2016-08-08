@@ -1,5 +1,6 @@
 import _ from 'underscore';
 import moment from 'moment';
+//import db from '../config/env.js';
 
 MainCtrl.$inject = ['$scope', '$stateParams'];
 
@@ -73,7 +74,7 @@ function MainCtrl($scope, $stateParams) {
         return parkingState;
     }
 
-    vm.scannedSign = _.findWhere(vm.signs, {id: vm.signid});
+    vm.scannedSign = _.findWhere(vm.signs, {signid: vm.signid});
     /*vm.areasCheckBoxLabelNumbers = vm.scannedSign.areas.join(',');
     vm.areasCheckBoxLabel = vm.areasCheckBoxLabelNumbers + ' תושב אזור ';*/
 
@@ -95,7 +96,7 @@ function MainCtrl($scope, $stateParams) {
     function init() {
         vm.signs = [
             {
-                id: 'edmont001',
+                signid: 'edmont001',
                 pictureUrl: 'https://s3-eu-west-1.amazonaws.com/carparkingsigns/sign001.png',
                 location: {},
                 status: {
@@ -107,10 +108,10 @@ function MainCtrl($scope, $stateParams) {
                         label: 'תושב אזור 30',
                         data: 'area#30'
                     },
-                    {
+                    /*{
                         label: 'תושב תל אביב',
                         data: 'all'
-                    },
+                    },*/
                     {
                         label: 'אני לא תושב תל אביב',
                         data: 'all'
@@ -197,7 +198,7 @@ function MainCtrl($scope, $stateParams) {
                     ]
             },
             {
-                id: 'edmont002',
+                signid: 'edmont002',
                 pictureUrl: 'https://s3-eu-west-1.amazonaws.com/carparkingsigns/sign002.png',
                 location: {},
                 defaultSignComment: 'החניה מותרת בתשלום',
